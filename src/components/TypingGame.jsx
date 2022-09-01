@@ -10,10 +10,9 @@ const TypingGame = () => {
     const [focused, setFocused] = useState(false);
     const [startGame, setStartGame] = useState(false);
     const [confetti, setConfetti] = useState(false);
-    const [windowOffset, setWindowOffset] = useState(0);
     const paragraphRef = useRef(null);
     const typingRef = useRef(null);
-    const currentCharRef = useRef(null);
+    // const currentCharRef = useRef(null);
 
     const fetchParagraph = async () => {
         try {
@@ -40,8 +39,8 @@ const TypingGame = () => {
 
     const handleTyping = (e) => {
         // Move screen to current typing position
-        let pos = currentCharRef.current.offsetTop - 100;
-        window.scrollTo(0, pos < 0 ? 0 : pos);
+        // let pos = currentCharRef.current.offsetTop - 200;
+        // window.scrollTo(0, pos < 0 ? 0 : pos);
         if(time > 0 && startGame) {
             setTyped(e.target.value);
         }
@@ -115,7 +114,7 @@ const TypingGame = () => {
                         </span>
                     ))}
                     <span className={`${focused ? 'current-character' : ''}`}
-                        ref={currentCharRef}
+                        // ref={currentCharRef}
                     >
                         {paragraph.slice(typed.length, typed.length + 1)}
                     </span>
